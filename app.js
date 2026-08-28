@@ -16,324 +16,494 @@ const volume = document.getElementById("volume");
 
 const search = document.getElementById("search");
 
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+
 let currentStation = null;
-let isPlaying = false;
 
 
-/* CREATE CARD */
+/* =========================================
+   CREATE RADIO CARD
+========================================= */
 
 function createCard(station) {
 
-  const card = document.createElement("div");
+    const card = document.createElement("div");
 
-  card.className = "radio-card";
+    card.className = "radio-card";
 
-  card.innerHTML = `
+    card.innerHTML = `
 
-    <div class="radio-icon">
-      ${station.icon}
-    </div>
+        <div class="radio-icon">
+            ${station.icon}
+        </div>
 
-    <h3>${station.name}</h3>
+        <h3>${station.name}</h3>
 
-    <p>
-      ${station.language} • ${station.category}
-    </p>
+        <p>
+            ${station.language} • ${station.category}
+        </p>
 
-    <span class="live">
-      ● LIVE RADIO
-    </span>
+        <span class="live">
+            ● LIVE RADIO
+        </span>
 
-    <button class="listen-btn">
-      ▶ Listen
-    </button>
+        <button class="listen-btn">
+            ▶ Listen
+        </button>
 
-  `;
+    `;
 
 
-  card.querySelector(".listen-btn")
-      .addEventListener("click", () => {
+    const button = card.querySelector(".listen-btn");
+
+
+    button.addEventListener("click", function () {
 
         playStation(station);
 
-      });
+    });
 
 
-  return card;
+    return card;
 }
 
 
-/* RENDER */
+/* =========================================
+   DISPLAY ALL RADIO
+========================================= */
 
 function renderStations(list = stations) {
 
-  radioGrid.innerHTML = "";
+    radioGrid.innerHTML = "";
 
-  list.forEach(station => {
+    list.forEach(function (station) {
 
-    radioGrid.appendChild(
-      createCard(station)
+        radioGrid.appendChild(
+            createCard(station)
+        );
+
+    });
+
+
+    /* Bengali */
+
+    renderCategory(
+        bengaliGrid,
+
+        list.filter(function (station) {
+
+            return station.language === "Bengali";
+
+        })
     );
 
-  });
+
+    /* Hindi */
+
+    renderCategory(
+        hindiGrid,
+
+        list.filter(function (station) {
+
+            return station.language === "Hindi";
+
+        })
+    );
 
 
-  renderCategory(
-    bengaliGrid,
-    list.filter(
-      station =>
-        station.language === "Bengali"
-    )
-  );
+    /* Deity */
+
+    renderCategory(
+        deityGrid,
+
+        list.filter(function (station) {
+
+            return [
+
+                "Shiva",
+                "Krishna",
+                "Devi",
+                "Ganesha",
+                "Hanuman",
+                "Sai Baba"
+
+            ].includes(station.category);
+
+        })
+    );
 
 
-  renderCategory(
-    hindiGrid,
-    list.filter(
-      station =>
-        station.language === "Hindi"
-    )
-  );
+    /* Mantra / Spiritual */
 
+    renderCategory(
+        mantraGrid,
 
-  renderCategory(
-    deityGrid,
-    list.filter(
-      station =>
-        [
-          "Shiva",
-          "Krishna",
-          "Devi",
-          "Ganesha",
-          "Hanuman",
-          "Sai Baba"
-        ].includes(station.category)
-    )
-  );
+        list.filter(function (station) {
 
+            return [
 
-  renderCategory(
-    mantraGrid,
-    list.filter(
-      station =>
-        [
-          "Vedic & Mantra",
-          "Kirtan",
-          "Bhajan & Spiritual"
-        ].includes(station.category)
-    )
-  );
+                "Vedic & Mantra",
+                "Kirtan",
+                "Bhajan & Spiritual"
+
+            ].includes(station.category);
+
+        })
+    );
 
 }
 
 
-/* CATEGORY */
+/* =========================================
+   CATEGORY DISPLAY
+========================================= */
 
 function renderCategory(element, list) {
 
-  element.innerHTML = "";
+    element.innerHTML = "";
 
-  list.forEach(station => {
+    list.forEach(function (station) {
 
-    element.appendChild(
-      createCard(station)
-    );
-
-  });
-
-}
-
-
-/* PLAY RADIO */
-
-function playStation(station) {
-
-  currentStation = station;
-
-  playerName.textContent =
-    station.name;
-
-  playerCategory.textContent =
-    station.category;
-
-  playerIcon.textContent =
-    station.icon;
-
-
-  if (!station.stream) {
-
-    window.open(
-      station.website,
-      "_blank"
-    );
-
-    return;
-  }
-
-
-  audio.src = station.stream;
-
-  audio.volume =
-    Number(volume.value);
-
-  audio.play()
-    .then(() => {
-
-      isPlaying = true;
-
-      playBtn.textContent = "⏸";
-
-    })
-    .catch(error => {
-
-      console.log(
-        "Radio playback error:",
-        error
-      );
+        element.appendChild(
+            createCard(station)
+        );
 
     });
 
 }
 
 
-/* PLAY / PAUSE */
-
-playBtn.addEventListener(
-  "click",
-  () => {
-
-    if (!currentStation) {
-      return;
-    }
-
-
-    if (!stationHasStream(currentStation)) {
-
-      window.open(
-        currentStation.website,
-        "_blank"
-      );
-
-      return;
-    }
-
-
-    if (audio.paused) {
-
-      audio.play();
-
-      isPlaying = true;
-
-      playBtn.textContent = "⏸";
-
-    } else {
-
-      audio.pause();
-
-      isPlaying = false;
-
-      playBtn.textContent = "▶";
-
-    }
-
-  }
-);
-
-
-/* CHECK STREAM */
+/* =========================================
+   CHECK STREAM
+========================================= */
 
 function stationHasStream(station) {
 
-  return (
-    station &&
-    station.stream &&
-    station.stream.trim() !== ""
-  );
+    return (
+
+        station &&
+        station.stream &&
+        station.stream.trim() !== ""
+
+    );
 
 }
 
 
-/* VOLUME */
+/* =========================================
+   PLAY RADIO
+========================================= */
 
-volume.addEventListener(
-  "input",
-  () => {
+function playStation(station) {
 
-    audio.volume =
-      Number(volume.value);
-
-  }
-);
+    currentStation = station;
 
 
-/* SEARCH */
+    /* Update player information */
 
-search.addEventListener(
-  "input",
-  () => {
+    playerName.textContent =
+        station.name;
 
-    const query =
-      search.value
-        .toLowerCase()
-        .trim();
+    playerCategory.textContent =
+        station.category;
+
+    playerIcon.textContent =
+        station.icon;
 
 
-    if (!query) {
+    /* If direct stream is not available */
 
-      renderStations();
+    if (!stationHasStream(station)) {
 
-      return;
+        alert(
+            "এই Radio-র Live Stream এখনো যোগ করা হয়নি।"
+        );
+
+        return;
 
     }
 
 
-    const filtered =
-      stations.filter(station =>
+    /* Stop previous radio */
 
-        station.name
-          .toLowerCase()
-          .includes(query)
-
-        ||
-
-        station.language
-          .toLowerCase()
-          .includes(query)
-
-        ||
-
-        station.category
-          .toLowerCase()
-          .includes(query)
-
-      );
+    audio.pause();
 
 
-    renderStations(filtered);
+    /* Set new stream */
 
-  }
+    audio.src = station.stream;
+
+    audio.load();
+
+
+    /* Set volume */
+
+    audio.volume =
+        Number(volume.value);
+
+
+    /* Start radio */
+
+    audio.play()
+
+        .then(function () {
+
+            playBtn.textContent = "⏸";
+
+        })
+
+        .catch(function (error) {
+
+            console.log(
+                "Radio playback error:",
+                error
+            );
+
+            alert(
+                "Radio চালু করা যাচ্ছে না। Stream URL পরীক্ষা করুন।"
+            );
+
+            playBtn.textContent = "▶";
+
+        });
+
+}
+
+
+/* =========================================
+   PLAY / PAUSE BUTTON
+========================================= */
+
+playBtn.addEventListener(
+    "click",
+
+    function () {
+
+        /* No station selected */
+
+        if (!currentStation) {
+
+            alert(
+                "প্রথমে একটি Radio নির্বাচন করুন।"
+            );
+
+            return;
+
+        }
+
+
+        /* No stream */
+
+        if (!stationHasStream(currentStation)) {
+
+            alert(
+                "এই Radio-র Live Stream এখনো যোগ করা হয়নি।"
+            );
+
+            return;
+
+        }
+
+
+        /* PAUSE */
+
+        if (!audio.paused) {
+
+            audio.pause();
+
+            playBtn.textContent = "▶";
+
+            return;
+
+        }
+
+
+        /* PLAY */
+
+        audio.play()
+
+            .then(function () {
+
+                playBtn.textContent = "⏸";
+
+            })
+
+            .catch(function (error) {
+
+                console.log(
+                    "Playback error:",
+                    error
+                );
+
+                alert(
+                    "Radio চালু করা যাচ্ছে না।"
+                );
+
+            });
+
+    }
 );
 
 
-/* MOBILE MENU */
+/* =========================================
+   VOLUME CONTROL
+========================================= */
 
-const menuBtn =
-  document.getElementById("menuBtn");
+volume.addEventListener(
+    "input",
 
-const nav =
-  document.getElementById("nav");
+    function () {
 
+        audio.volume =
+            Number(volume.value);
+
+    }
+);
+
+
+/* =========================================
+   RADIO ENDED
+========================================= */
+
+audio.addEventListener(
+    "ended",
+
+    function () {
+
+        playBtn.textContent = "▶";
+
+    }
+);
+
+
+/* =========================================
+   RADIO ERROR
+========================================= */
+
+audio.addEventListener(
+    "error",
+
+    function () {
+
+        playBtn.textContent = "▶";
+
+        console.log(
+            "Radio stream error"
+        );
+
+    }
+);
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+search.addEventListener(
+    "input",
+
+    function () {
+
+        const query =
+            search.value
+                .toLowerCase()
+                .trim();
+
+
+        /* Empty search */
+
+        if (!query) {
+
+            renderStations();
+
+            return;
+
+        }
+
+
+        /* Search */
+
+        const filtered =
+            stations.filter(function (station) {
+
+                return (
+
+                    station.name
+                        .toLowerCase()
+                        .includes(query)
+
+                    ||
+
+                    station.language
+                        .toLowerCase()
+                        .includes(query)
+
+                    ||
+
+                    station.category
+                        .toLowerCase()
+                        .includes(query)
+
+                );
+
+            });
+
+
+        renderStations(filtered);
+
+    }
+);
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
 
 menuBtn.addEventListener(
-  "click",
-  () => {
+    "click",
 
-    nav.classList.toggle("show");
+    function () {
 
-  }
+        nav.classList.toggle("show");
+
+    }
 );
 
 
-/* START */
+/* =========================================
+   CLOSE MENU AFTER CLICK
+========================================= */
+
+const navLinks =
+    nav.querySelectorAll("a");
+
+
+navLinks.forEach(function (link) {
+
+    link.addEventListener(
+        "click",
+
+        function () {
+
+            nav.classList.remove("show");
+
+        }
+    );
+
+});
+
+
+/* =========================================
+   START APPLICATION
+========================================= */
 
 renderStations();
+
+
+/* =========================================
+   DEFAULT VOLUME
+========================================= */
+
+audio.volume =
+    Number(volume.value);
