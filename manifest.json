@@ -1,0 +1,10 @@
+{
+  "name": "Devotional Radio",
+  "short_name": "Devotional Radio",
+  "description": "Bengali, Hindi and Spiritual Internet Radio",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fffaf2",
+  "theme_color": "#7b1e00",
+  "icons": []
+}
