@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
 
 <meta charset="UTF-8">
@@ -10,554 +9,457 @@ content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color" content="#8b2500">
 
-<meta name="description"
-content="Bengali Hindi Devotional Internet Radio">
-
 <title>🙏 Devotional Radio</title>
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#fffaf2;
-  color:#321b0f;
-  padding-bottom:105px;
+font-family:Arial,sans-serif;
+background:#fffaf2;
+color:#321b0f;
+padding-bottom:110px;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+position:sticky;
+top:0;
+z-index:1000;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  padding:15px 5%;
+padding:15px 5%;
 
-  background:#8b2500;
-  color:white;
+background:#8b2500;
+color:white;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:bold;
+font-size:22px;
+font-weight:bold;
 }
 
 nav{
-  display:flex;
-  gap:18px;
+display:flex;
+gap:18px;
 }
 
 nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
 
 .menu{
-  display:none;
-  border:0;
-  background:none;
-  color:white;
-  font-size:28px;
-  cursor:pointer;
+display:none;
+border:0;
+background:none;
+color:white;
+font-size:28px;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
 .hero{
-  min-height:390px;
+min-height:390px;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  text-align:center;
+text-align:center;
 
-  background:
-  radial-gradient(
-    circle,
-    #ffe8a0 0%,
-    #ffb000 45%,
-    #d35400 75%,
-    #8b2500 100%
-  );
+background:
+radial-gradient(
+circle,
+#ffe8a0,
+#ffb000 45%,
+#d35400 75%,
+#8b2500
+);
 }
 
 .om{
-  font-size:80px;
-  margin-bottom:10px;
+font-size:80px;
+margin-bottom:10px;
 }
 
 .hero h1{
-  font-size:44px;
-  margin-bottom:15px;
+font-size:44px;
+margin-bottom:15px;
 }
 
 .hero p{
-  font-size:18px;
-  margin-bottom:25px;
+font-size:18px;
+margin-bottom:25px;
 }
 
 .listen{
-  border:0;
-  border-radius:30px;
+border:0;
+border-radius:30px;
 
-  padding:15px 30px;
+padding:15px 30px;
 
-  background:white;
-  color:#7b1e00;
+background:white;
+color:#7b1e00;
 
-  font-size:17px;
-  font-weight:bold;
+font-size:17px;
+font-weight:bold;
 
-  cursor:pointer;
+cursor:pointer;
 }
 
-
-/* =========================
-   SEARCH
-========================= */
-
 .search-box{
-  padding:22px 6%;
-  background:white;
+padding:22px 6%;
+background:white;
 }
 
 #search{
-  display:block;
+display:block;
+width:100%;
+max-width:700px;
+margin:auto;
 
-  width:100%;
-  max-width:700px;
+padding:15px 20px;
 
-  margin:auto;
+border:1px solid #ddd;
+border-radius:30px;
 
-  padding:15px 20px;
-
-  border:1px solid #ddd;
-  border-radius:30px;
-
-  font-size:16px;
-  outline:none;
+font-size:16px;
+outline:none;
 }
 
-
-/* =========================
-   FILTERS
-========================= */
-
 .filters{
-  display:flex;
-  gap:10px;
+display:flex;
+gap:10px;
 
-  padding:18px 6%;
+padding:18px 6%;
 
-  overflow-x:auto;
+overflow-x:auto;
 
-  background:#fffaf2;
+background:#fffaf2;
 }
 
 .filter{
-  flex-shrink:0;
+flex-shrink:0;
 
-  padding:10px 18px;
+padding:10px 18px;
 
-  border:1px solid #d8b28a;
-  border-radius:25px;
+border:1px solid #d8b28a;
+border-radius:25px;
 
-  background:white;
-  color:#7b1e00;
+background:white;
+color:#7b1e00;
 
-  font-weight:bold;
+font-weight:bold;
 
-  cursor:pointer;
+cursor:pointer;
 }
 
 .filter.active{
-  background:#8b2500;
-  color:white;
+background:#8b2500;
+color:white;
 }
 
-
-/* =========================
-   NOW PLAYING
-========================= */
-
 .now-playing{
-  margin:15px 6%;
+margin:15px 6%;
 
-  padding:18px;
+padding:18px;
 
-  border-radius:16px;
+border-radius:16px;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  background:#24150c;
-  color:white;
+background:#24150c;
+color:white;
 }
 
 .now-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-
-  min-width:0;
+display:flex;
+align-items:center;
+gap:12px;
+min-width:0;
 }
 
 .now-icon{
-  font-size:32px;
+font-size:32px;
 }
 
 .now-name{
-  font-weight:bold;
+font-weight:bold;
 
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 
 .now-category{
-  display:block;
-
-  margin-top:4px;
-
-  color:#ccc;
-  font-size:13px;
+display:block;
+margin-top:4px;
+color:#ccc;
+font-size:13px;
 }
 
 .now-status{
-  font-size:13px;
-  font-weight:bold;
+font-size:13px;
+font-weight:bold;
 }
 
-
-/* =========================
-   SECTION
-========================= */
-
 .section{
-  padding:30px 6%;
+padding:30px 6%;
 }
 
 .section h2{
-  font-size:28px;
-  margin-bottom:22px;
+font-size:28px;
+margin-bottom:22px;
 }
-
-
-/* =========================
-   GRID
-========================= */
 
 .grid{
-  display:grid;
+display:grid;
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(230px,1fr));
 
-  gap:20px;
+gap:20px;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .card{
-  background:white;
+background:white;
 
-  border-radius:18px;
+border-radius:18px;
 
-  padding:22px;
+padding:22px;
 
-  box-shadow:
-  0 5px 20px rgba(0,0,0,.08);
+box-shadow:
+0 5px 20px rgba(0,0,0,.08);
 }
 
 .icon{
-  width:65px;
-  height:65px;
+width:65px;
+height:65px;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  border-radius:50%;
+border-radius:50%;
 
-  background:#fff0d0;
+background:#fff0d0;
 
-  font-size:32px;
+font-size:32px;
 
-  margin-bottom:15px;
+margin-bottom:15px;
 }
 
 .card h3{
-  margin-bottom:8px;
+margin-bottom:8px;
 }
 
 .card p{
-  color:#777;
-  margin-bottom:12px;
+color:#777;
+margin-bottom:12px;
 }
 
 .badge{
-  display:inline-block;
+display:inline-block;
 
-  padding:5px 10px;
+padding:5px 10px;
 
-  border-radius:20px;
+border-radius:20px;
 
-  background:#e8f5e9;
-  color:#187b2f;
+background:#e8f5e9;
+color:#187b2f;
 
-  font-size:12px;
-  font-weight:bold;
+font-size:12px;
+font-weight:bold;
 }
 
 .badge.off{
-  background:#eeeeee;
-  color:#777;
+background:#eeeeee;
+color:#777;
+}
+
+.badge.special{
+background:#fff0d0;
+color:#8b2500;
 }
 
 .play{
-  width:100%;
+width:100%;
 
-  margin-top:15px;
+margin-top:15px;
 
-  padding:12px;
+padding:12px;
 
-  border:0;
-  border-radius:10px;
+border:0;
+border-radius:10px;
 
-  background:#8b2500;
-  color:white;
+background:#8b2500;
+color:white;
 
-  font-size:15px;
-  font-weight:bold;
+font-size:15px;
+font-weight:bold;
 
-  cursor:pointer;
+cursor:pointer;
 }
 
-.play:active{
-  transform:scale(.98);
+.special-button{
+background:#5b2600;
 }
-
-
-/* =========================
-   STATUS
-========================= */
 
 .status{
-  text-align:center;
-  padding:12px;
-  color:#666;
-  font-size:14px;
+text-align:center;
+padding:12px;
+color:#666;
+font-size:14px;
 }
 
-
-/* =========================
-   PLAYER
-========================= */
-
 .player{
-  position:fixed;
+position:fixed;
 
-  left:0;
-  right:0;
-  bottom:0;
+left:0;
+right:0;
+bottom:0;
 
-  z-index:2000;
+z-index:2000;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  padding:10px 5%;
+padding:10px 5%;
 
-  background:#24150c;
-  color:white;
+background:#24150c;
+color:white;
 }
 
 .player-info{
-  display:flex;
-  align-items:center;
-  gap:10px;
-
-  min-width:0;
+display:flex;
+align-items:center;
+gap:10px;
+min-width:0;
 }
 
 #playerIcon{
-  font-size:32px;
+font-size:32px;
 }
 
 #playerName{
-  display:block;
-
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+display:block;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 
 #playerCategory{
-  display:block;
-
-  margin-top:3px;
-
-  color:#ccc;
-  font-size:13px;
+display:block;
+margin-top:3px;
+color:#ccc;
+font-size:13px;
 }
 
 .controls{
-  display:flex;
-  align-items:center;
-  gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 #mainPlay{
-  width:50px;
-  height:50px;
+width:50px;
+height:50px;
 
-  border:0;
-  border-radius:50%;
+border:0;
+border-radius:50%;
 
-  background:white;
-  color:#8b2500;
+background:white;
+color:#8b2500;
 
-  font-size:20px;
+font-size:20px;
 
-  cursor:pointer;
+cursor:pointer;
 }
 
 #volume{
-  width:100px;
+width:100px;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
-  padding:35px;
+padding:35px;
 
-  text-align:center;
+text-align:center;
 
-  background:#24150c;
-  color:white;
+background:#24150c;
+color:white;
 }
 
 footer p{
-  margin:6px;
+margin:6px;
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:700px){
 
-  header{
-    flex-wrap:wrap;
-  }
-
-  .menu{
-    display:block;
-  }
-
-  nav{
-    display:none;
-
-    width:100%;
-
-    flex-direction:column;
-
-    padding-top:15px;
-  }
-
-  nav.show{
-    display:flex;
-  }
-
-  .hero{
-    min-height:360px;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .hero p{
-    font-size:16px;
-    padding:0 15px;
-  }
-
-  .om{
-    font-size:70px;
-  }
-
-  .now-playing{
-    margin-left:4%;
-    margin-right:4%;
-  }
-
-  .player{
-    padding:9px 12px;
-  }
-
-  .player-info{
-    max-width:58%;
-  }
-
-  #volume{
-    width:65px;
-  }
-
+header{
+flex-wrap:wrap;
 }
 
+.menu{
+display:block;
+}
 
-/* =========================
-   SMALL MOBILE
-========================= */
+nav{
+display:none;
 
-@media(max-width:420px){
+width:100%;
 
-  .logo{
-    font-size:18px;
-  }
+flex-direction:column;
 
-  .controls{
-    gap:7px;
-  }
+padding-top:15px;
+}
 
-  #volume{
-    width:55px;
-  }
+nav.show{
+display:flex;
+}
 
-  #playerName{
-    font-size:13px;
-  }
+.hero{
+min-height:360px;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+.hero p{
+font-size:16px;
+padding:0 15px;
+}
+
+.om{
+font-size:70px;
+}
+
+.now-playing{
+margin-left:4%;
+margin-right:4%;
+}
+
+.player{
+padding:9px 12px;
+}
+
+.player-info{
+max-width:58%;
+}
+
+#volume{
+width:65px;
+}
 
 }
 
@@ -568,10 +470,6 @@ footer p{
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -599,16 +497,12 @@ id="menuButton">
 
 <a href="#deity">Deity</a>
 
-<a href="#mantra">Mantra</a>
+<a href="#special">Special</a>
 
 </nav>
 
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
 
 <section
 class="hero"
@@ -641,104 +535,68 @@ id="listenLive">
 </section>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
-
 <div class="search-box">
 
 <input
 id="search"
 type="search"
-placeholder="🔍 Search Radio, Shiva, Krishna, Bhajan...">
+placeholder="🔍 Search Radio, Shiva, Krishna, Hanuman...">
 
 </div>
 
-
-<!-- =========================
-     FILTERS
-========================= -->
 
 <div class="filters">
 
 <button
 class="filter active"
 data-filter="all">
-
 All
-
 </button>
 
 <button
 class="filter"
 data-filter="Bengali">
-
 🇧🇩 বাংলা
-
 </button>
 
 <button
 class="filter"
 data-filter="Hindi">
-
 🇮🇳 हिन्दी
-
 </button>
 
 <button
 class="filter"
 data-filter="Shiva">
-
 🔱 Shiva
-
 </button>
 
 <button
 class="filter"
 data-filter="Krishna">
-
 🪷 Krishna
-
 </button>
 
 <button
 class="filter"
 data-filter="Devi">
-
 🌺 Devi
-
-</button>
-
-<button
-class="filter"
-data-filter="Ganesha">
-
-🐘 Ganesha
-
 </button>
 
 <button
 class="filter"
 data-filter="Hanuman">
-
 🚩 Hanuman
-
 </button>
 
 <button
 class="filter"
-data-filter="Spiritual">
-
-📿 Spiritual
-
+data-filter="Special">
+⭐ Special
 </button>
 
 </div>
 
-
-<!-- =========================
-     NOW PLAYING
-========================= -->
 
 <div class="now-playing">
 
@@ -785,16 +643,12 @@ id="nowStatus">
 </div>
 
 
-<!-- =========================
-     ALL RADIO
-========================= -->
-
 <section
 class="section"
 id="stations">
 
 <h2>
-🎙️ Devotional Radio
+🎙️ Live Devotional Radio
 </h2>
 
 <div
@@ -805,16 +659,12 @@ id="allRadio">
 </section>
 
 
-<!-- =========================
-     BENGALI RADIO
-========================= -->
-
 <section
 class="section"
 id="bengali">
 
 <h2>
-🪔 বাংলা ভক্তিমূলক Radio
+🪔 বাংলা Radio
 </h2>
 
 <div
@@ -824,10 +674,6 @@ id="bengaliRadio">
 
 </section>
 
-
-<!-- =========================
-     HINDI RADIO
-========================= -->
 
 <section
 class="section"
@@ -845,10 +691,6 @@ id="hindiRadio">
 </section>
 
 
-<!-- =========================
-     DEITY
-========================= -->
-
 <section
 class="section"
 id="deity">
@@ -865,27 +707,21 @@ id="deityRadio">
 </section>
 
 
-<!-- =========================
-     SPIRITUAL
-========================= -->
-
 <section
 class="section"
-id="mantra">
+id="special">
 
 <h2>
-📿 Spiritual & Mantra Radio
+⭐ Special Devotional
 </h2>
 
 <div
 class="grid"
-id="mantraRadio">
+id="specialRadio">
 </div>
 
 </section>
 
-
-<!-- STATUS -->
 
 <div
 class="status"
@@ -896,17 +732,11 @@ id="status">
 </div>
 
 
-<!-- AUDIO -->
-
 <audio
 id="audio"
 preload="none">
 </audio>
 
-
-<!-- =========================
-     PLAYER
-========================= -->
 
 <div class="player">
 
@@ -933,11 +763,8 @@ Devotional Radio
 
 <div class="controls">
 
-<button
-id="mainPlay">
-
+<button id="mainPlay">
 ▶
-
 </button>
 
 <input
@@ -953,10 +780,6 @@ value="0.8">
 </div>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
 <p>
@@ -965,6 +788,10 @@ value="0.8">
 
 <p>
 Bengali • Hindi • Spiritual • Internet Radio
+</p>
+
+<p>
+⭐ Live Radio • Bhajan • Kirtan • Mantra
 </p>
 
 <p>
@@ -978,267 +805,184 @@ Bengali • Hindi • Spiritual • Internet Radio
 
 
 /* =====================================================
-   RADIO DATABASE
+RADIO DATABASE
 ===================================================== */
 
 const stations = [
 
-/* =========================
-   WORKING CHANNEL 1
-========================= */
+
+/* LIVE 1 */
 
 {
-  name:"Bhakti Sangeet",
-  language:"Hindi",
-  category:"Bhajan & Spiritual",
-  icon:"🎵",
-  stream:"https://stream.zeno.fm/ut3kgm1vsa0uv"
+name:"Bhakti Sangeet",
+language:"Hindi",
+category:"Bhajan & Spiritual",
+icon:"🎵",
+type:"live",
+stream:"https://stream.zeno.fm/ut3kgm1vsa0uv"
 },
 
 
-/* =========================
-   WORKING CHANNEL 2
-========================= */
+/* LIVE 2 */
 
 {
-  name:"Bhaktiworld Shiva",
-  language:"Hindi",
-  category:"Shiva",
-  icon:"🔱",
-  stream:"https://hot.out.airtime.pro:8000/hot_a"
+name:"Bhaktiworld Shiva",
+language:"Hindi",
+category:"Shiva",
+icon:"🔱",
+type:"live",
+stream:"https://hot.out.airtime.pro:8000/hot_a"
 },
 
 
-/* =========================
-   WORKING CHANNEL 3
-========================= */
+/* LIVE 3 */
 
 {
-  name:"Bhaktiworld Hanuman Ji",
-  language:"Hindi",
-  category:"Hanuman",
-  icon:"🚩",
-  stream:"https://2bhanuman.out.airtime.pro:8000/2bhanuman_a"
+name:"Bhaktiworld Hanuman Ji",
+language:"Hindi",
+category:"Hanuman",
+icon:"🚩",
+type:"live",
+stream:"https://2bhanuman.out.airtime.pro:8000/2bhanuman_a"
 },
 
 
-/* =========================
-   WORKING CHANNEL 4
-========================= */
+/* LIVE 4 */
 
 {
-  name:"Bhaktiworld Devi Maa",
-  language:"Hindi",
-  category:"Devi",
-  icon:"🌺",
-  stream:"https://ibadat.out.airtime.pro:8000/ibadat_a"
+name:"Bhaktiworld Devi Maa",
+language:"Hindi",
+category:"Devi",
+icon:"🌺",
+type:"live",
+stream:"https://ibadat.out.airtime.pro:8000/ibadat_a"
 },
 
 
-/* =========================
-   WORKING CHANNEL 5
-========================= */
+/* LIVE 5 */
 
 {
-  name:"Bhaktiworld Ganesha",
-  language:"Hindi",
-  category:"Ganesha",
-  icon:"🐘",
-  stream:"https://radio2bindia.out.airtime.pro/radio2bindia_a"
+name:"Bhaktiworld Ganesha",
+language:"Hindi",
+category:"Ganesha",
+icon:"🐘",
+type:"live",
+stream:"https://radio2bindia.out.airtime.pro/radio2bindia_a"
 },
 
 
-/* =========================
-   WORKING CHANNEL 6
-========================= */
+/* LIVE 6 */
 
 {
-  name:"Bhaktiworld Krishna",
-  language:"Hindi",
-  category:"Krishna",
-  icon:"🪷",
-  stream:"https://millenniumhits.out.airtime.pro:8000/millenniumhits_a"
+name:"Bhaktiworld Krishna",
+language:"Hindi",
+category:"Krishna",
+icon:"🪷",
+type:"live",
+stream:"https://millenniumhits.out.airtime.pro:8000/millenniumhits_a"
 },
 
 
-/* =========================
-   WORKING CHANNEL 7
-========================= */
+/* LIVE 7 */
 
 {
-  name:"Sahaja Yoga Bhajans",
-  language:"Indian",
-  category:"Spiritual",
-  icon:"🕉️",
-  stream:"https://radiosahaja.com:8443/SY2radio.mp3"
+name:"Sahaja Yoga Bhajans",
+language:"Indian",
+category:"Spiritual",
+icon:"🕉️",
+type:"live",
+stream:"https://radiosahaja.com:8443/SY2radio.mp3"
 },
 
 
-/* =========================
-   WORKING CHANNEL 8
-========================= */
+/* LIVE 8 */
 
 {
-  name:"Sahaja Yoga Songs",
-  language:"Indian",
-  category:"Spiritual",
-  icon:"🎶",
-  stream:"https://radiosahaja.com:8443/SYradio.mp3"
+name:"Sahaja Yoga Songs",
+language:"Indian",
+category:"Spiritual",
+icon:"🎶",
+type:"live",
+stream:"https://radiosahaja.com:8443/SYradio.mp3"
 },
 
 
-/* =====================================================
-   BENGALI RADIO
-   DIRECT STREAM NOT YET VERIFIED
-===================================================== */
+/* BENGALI */
 
 {
-  name:"Radio Sharanam",
-  language:"Bengali",
-  category:"Bengali Devotional",
-  icon:"🪔",
-  stream:""
+name:"Radio Sharanam",
+language:"Bengali",
+category:"Bengali Devotional",
+icon:"🪔",
+type:"unavailable",
+stream:""
+},
+
+{
+name:"Bengali Kirtan",
+language:"Bengali",
+category:"Kirtan",
+icon:"🎶",
+type:"unavailable",
+stream:""
+},
+
+{
+name:"Bengali Harinam",
+language:"Bengali",
+category:"Harinam",
+icon:"📿",
+type:"unavailable",
+stream:""
+},
+
+{
+name:"Bengali Bhajan",
+language:"Bengali",
+category:"Bhajan",
+icon:"🙏",
+type:"unavailable",
+stream:""
+},
+
+{
+name:"Bengali Aarti",
+language:"Bengali",
+category:"Aarti",
+icon:"🪔",
+type:"unavailable",
+stream:""
 },
 
 
+/* SPECIAL - HARIHARAN */
+
 {
-  name:"Bengali Kirtan",
-  language:"Bengali",
-  category:"Kirtan",
-  icon:"🎶",
-  stream:""
+name:"Hariharan Devotional",
+language:"Hindi",
+category:"Hariharan • Hanuman",
+icon:"🙏",
+type:"special",
+url:"https://www.tseries.com/videos/tseriesbhakti/PLFFBD1EADC5836B35"
 },
 
 
-{
-  name:"Bengali Harinam",
-  language:"Bengali",
-  category:"Harinam",
-  icon:"📿",
-  stream:""
-},
-
+/* SPECIAL - SHAIVA LAHARI */
 
 {
-  name:"Bengali Bhajan",
-  language:"Bengali",
-  category:"Bhajan",
-  icon:"🙏",
-  stream:""
-},
-
-
-{
-  name:"Bengali Aarti",
-  language:"Bengali",
-  category:"Aarti",
-  icon:"🪔",
-  stream:""
-},
-
-
-/* =========================
-   AKASHVANI BENGALI
-========================= */
-
-{
-  name:"Akashvani Bangla",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"📻",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Kolkata Geetanjali",
-  language:"Bengali",
-  category:"Bengali Music",
-  icon:"🎵",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Kolkata Sanchayita",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"📻",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Shantiniketan",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"🌺",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Murshidabad",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"📻",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Siliguri",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"📻",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Kurseong",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"📻",
-  stream:""
-},
-
-
-{
-  name:"Akashvani Maitree",
-  language:"Bengali",
-  category:"Bengali Radio",
-  icon:"📻",
-  stream:""
-},
-
-
-/* =========================
-   MORE SPIRITUAL
-========================= */
-
-{
-  name:"Shirdi Sai Bhakti Radio",
-  language:"Hindi",
-  category:"Sai Baba",
-  icon:"🙏",
-  stream:""
-},
-
-
-{
-  name:"Mahamrityunjay Mantra",
-  language:"Hindi",
-  category:"Mantra",
-  icon:"📿",
-  stream:""
+name:"Shaiva Lahari 24×7",
+language:"Multi-language",
+category:"Lord Shiva",
+icon:"🔱",
+type:"special",
+url:"https://shaivam.org/radio-shaivalahari/"
 }
 
 ];
 
 
 /* =====================================================
-   ELEMENTS
+ELEMENTS
 ===================================================== */
 
 const audio =
@@ -1289,719 +1033,728 @@ document.getElementById("hindiRadio");
 const deityRadio =
 document.getElementById("deityRadio");
 
-const mantraRadio =
-document.getElementById("mantraRadio");
+const specialRadio =
+document.getElementById("specialRadio");
 
-let currentStation = null;
+let currentStation =
+null;
 
-let currentFilter = "all";
+let currentFilter =
+"all";
 
 
 /* =====================================================
-   CREATE CARD
+CREATE CARD
 ===================================================== */
 
 function createCard(station){
 
-  const card =
-  document.createElement("div");
+const card =
+document.createElement("div");
 
-  card.className="card";
-
-
-  const available =
-  station.stream &&
-  station.stream.trim() !== "";
+card.className =
+"card";
 
 
-  card.innerHTML = `
+let badgeText =
+"";
 
-    <div class="icon">
-      ${station.icon}
-    </div>
-
-    <h3>
-      ${station.name}
-    </h3>
-
-    <p>
-      ${station.language}
-      •
-      ${station.category}
-    </p>
-
-    <span class="${available ? "badge" : "badge off"}">
-
-      ${
-        available
-        ?
-        "● STREAM READY"
-        :
-        "COMING SOON"
-      }
-
-    </span>
-
-    <button class="play">
-
-      ${
-        available
-        ?
-        "▶ Listen"
-        :
-        "Not Available"
-      }
-
-    </button>
-
-  `;
+let buttonText =
+"";
 
 
-  const button =
-  card.querySelector(".play");
+if(
+station.type === "live"
+){
+
+badgeText =
+"🔴 LIVE RADIO";
+
+buttonText =
+"▶ Listen";
+
+}
+
+else if(
+station.type === "special"
+){
+
+badgeText =
+"⭐ OFFICIAL SOURCE";
+
+buttonText =
+"Open Official";
+
+}
+
+else{
+
+badgeText =
+"COMING SOON";
+
+buttonText =
+"Not Available";
+
+}
 
 
-  button.addEventListener(
-    "click",
-    function(){
+card.innerHTML = `
 
-      if(available){
+<div class="icon">
+${station.icon}
+</div>
 
-        selectRadio(station);
+<h3>
+${station.name}
+</h3>
 
-      }
+<p>
+${station.language}
+•
+${station.category}
+</p>
 
-      else{
+<span class="${
+station.type === "live"
+?
+"badge"
+:
+station.type === "special"
+?
+"badge special"
+:
+"badge off"
+}">
 
-        status.textContent =
-        "ℹ️ এই Radio-র Direct Live Stream এখনো যোগ করা হয়নি।";
+${badgeText}
 
-      }
+</span>
 
-    }
-  );
+<button class="play ${
+station.type === "special"
+?
+"special-button"
+:
+""
+}">
+
+${buttonText}
+
+</button>
+
+`;
 
 
-  return card;
+const button =
+card.querySelector(".play");
+
+
+button.addEventListener(
+"click",
+function(){
+
+/* LIVE */
+
+if(
+station.type === "live"
+){
+
+selectRadio(
+station
+);
+
+}
+
+
+/* SPECIAL */
+
+else if(
+station.type === "special"
+){
+
+window.open(
+station.url,
+"_blank"
+);
+
+}
+
+
+/* UNAVAILABLE */
+
+else{
+
+status.textContent =
+"ℹ️ এই Radio-র direct stream এখনো পাওয়া যায়নি।";
+
+}
+
+});
+
+
+return card;
 
 }
 
 
 /* =====================================================
-   RENDER
+RENDER
 ===================================================== */
 
 function render(list){
 
-  allRadio.innerHTML="";
-  bengaliRadio.innerHTML="";
-  hindiRadio.innerHTML="";
-  deityRadio.innerHTML="";
-  mantraRadio.innerHTML="";
+allRadio.innerHTML="";
+bengaliRadio.innerHTML="";
+hindiRadio.innerHTML="";
+deityRadio.innerHTML="";
+specialRadio.innerHTML="";
 
 
-  /* ALL */
+/* ALL */
 
-  list.forEach(
-    function(station){
+list.forEach(
+function(station){
 
-      allRadio.appendChild(
-        createCard(station)
-      );
+allRadio.appendChild(
+createCard(station)
+);
 
-    }
-  );
-
-
-  /* BENGALI */
-
-  list
-  .filter(
-    function(station){
-
-      return station.language === "Bengali";
-
-    }
-  )
-  .forEach(
-    function(station){
-
-      bengaliRadio.appendChild(
-        createCard(station)
-      );
-
-    }
-  );
+});
 
 
-  /* HINDI */
+/* BENGALI */
 
-  list
-  .filter(
-    function(station){
+list
+.filter(
+function(station){
 
-      return station.language === "Hindi";
+return station.language === "Bengali";
 
-    }
-  )
-  .forEach(
-    function(station){
+})
+.forEach(
+function(station){
 
-      hindiRadio.appendChild(
-        createCard(station)
-      );
+bengaliRadio.appendChild(
+createCard(station)
+);
 
-    }
-  );
+});
 
 
-  /* DEITY */
+/* HINDI */
 
-  const deityNames = [
+list
+.filter(
+function(station){
 
-    "Shiva",
-    "Krishna",
-    "Devi",
-    "Ganesha",
-    "Hanuman",
-    "Sai Baba"
+return station.language === "Hindi";
 
-  ];
+})
+.forEach(
+function(station){
 
+hindiRadio.appendChild(
+createCard(station)
+);
 
-  list
-  .filter(
-    function(station){
-
-      return deityNames.includes(
-        station.category
-      );
-
-    }
-  )
-  .forEach(
-    function(station){
-
-      deityRadio.appendChild(
-        createCard(station)
-      );
-
-    }
-  );
+});
 
 
-  /* SPIRITUAL */
+/* DEITY */
 
-  list
-  .filter(
-    function(station){
+const deityNames = [
 
-      return(
+"Shiva",
+"Krishna",
+"Devi",
+"Ganesha",
+"Hanuman",
+"Sai Baba",
+"Lord Shiva"
 
-        station.category === "Spiritual"
+];
 
-        ||
 
-        station.category === "Mantra"
+list
+.filter(
+function(station){
 
-        ||
+return deityNames.includes(
+station.category
+);
 
-        station.category === "Kirtan"
+})
+.forEach(
+function(station){
 
-        ||
+deityRadio.appendChild(
+createCard(station)
+);
 
-        station.category === "Harinam"
+});
 
-        ||
 
-        station.category === "Bhajan"
+/* SPECIAL */
 
-        ||
+list
+.filter(
+function(station){
 
-        station.category === "Aarti"
+return station.type === "special";
 
-        ||
+})
+.forEach(
+function(station){
 
-        station.category === "Bhajan & Spiritual"
+specialRadio.appendChild(
+createCard(station)
+);
 
-      );
-
-    }
-  )
-  .forEach(
-    function(station){
-
-      mantraRadio.appendChild(
-        createCard(station)
-      );
-
-    }
-  );
+});
 
 }
 
 
 /* =====================================================
-   FILTER
+FILTER
 ===================================================== */
 
 function applyFilter(){
 
-  let result =
-  stations.slice();
+let result =
+stations.slice();
 
 
-  if(
-    currentFilter !== "all"
-  ){
+if(
+currentFilter !== "all"
+){
 
-    if(
-      currentFilter === "Bengali"
-    ){
+if(
+currentFilter === "Bengali"
+){
 
-      result =
-      result.filter(
-        function(station){
+result =
+result.filter(
+function(station){
 
-          return station.language === "Bengali";
+return station.language === "Bengali";
 
-        }
-      );
+});
 
-    }
+}
 
-    else if(
-      currentFilter === "Hindi"
-    ){
+else if(
+currentFilter === "Hindi"
+){
 
-      result =
-      result.filter(
-        function(station){
+result =
+result.filter(
+function(station){
 
-          return station.language === "Hindi";
+return station.language === "Hindi";
 
-        }
-      );
+});
 
-    }
+}
 
-    else if(
-      currentFilter === "Spiritual"
-    ){
+else if(
+currentFilter === "Special"
+){
 
-      result =
-      result.filter(
-        function(station){
+result =
+result.filter(
+function(station){
 
-          return(
+return station.type === "special";
 
-            station.category === "Spiritual"
+});
 
-            ||
+}
 
-            station.category === "Mantra"
+else{
 
-            ||
+result =
+result.filter(
+function(station){
 
-            station.category === "Bhajan & Spiritual"
+return station.category === currentFilter;
 
-          );
+});
 
-        }
-      );
+}
 
-    }
-
-    else{
-
-      result =
-      result.filter(
-        function(station){
-
-          return station.category === currentFilter;
-
-        }
-      );
-
-    }
-
-  }
+}
 
 
-  /* SEARCH */
+/* SEARCH */
 
-  const text =
-  search.value
-  .toLowerCase()
-  .trim();
-
-
-  if(text){
-
-    result =
-    result.filter(
-      function(station){
-
-        return(
-
-          station.name
-          .toLowerCase()
-          .includes(text)
-
-          ||
-
-          station.language
-          .toLowerCase()
-          .includes(text)
-
-          ||
-
-          station.category
-          .toLowerCase()
-          .includes(text)
-
-        );
-
-      }
-    );
-
-  }
+const text =
+search.value
+.toLowerCase()
+.trim();
 
 
-  render(result);
+if(text){
+
+result =
+result.filter(
+function(station){
+
+return(
+
+station.name
+.toLowerCase()
+.includes(text)
+
+||
+
+station.language
+.toLowerCase()
+.includes(text)
+
+||
+
+station.category
+.toLowerCase()
+.includes(text)
+
+);
+
+});
+
+}
+
+
+render(result);
 
 }
 
 
 /* =====================================================
-   FILTER BUTTONS
+FILTER BUTTONS
 ===================================================== */
 
 document
 .querySelectorAll(".filter")
 .forEach(
-  function(button){
+function(button){
 
-    button.addEventListener(
-      "click",
-      function(){
+button.addEventListener(
+"click",
+function(){
 
-        document
-        .querySelectorAll(".filter")
-        .forEach(
-          function(btn){
+document
+.querySelectorAll(".filter")
+.forEach(
+function(btn){
 
-            btn.classList.remove(
-              "active"
-            );
+btn.classList.remove(
+"active"
+);
 
-          }
-        );
-
-
-        button.classList.add(
-          "active"
-        );
+});
 
 
-        currentFilter =
-        button.getAttribute(
-          "data-filter"
-        );
-
-
-        applyFilter();
-
-      }
-    );
-
-  }
+button.classList.add(
+"active"
 );
 
 
+currentFilter =
+button.getAttribute(
+"data-filter"
+);
+
+
+applyFilter();
+
+});
+
+});
+
+
 /* =====================================================
-   SEARCH
+SEARCH
 ===================================================== */
 
 search.addEventListener(
-  "input",
-  function(){
+"input",
+function(){
 
-    applyFilter();
+applyFilter();
 
-  }
-);
+});
 
 
 /* =====================================================
-   SELECT RADIO
+SELECT RADIO
 ===================================================== */
 
 function selectRadio(station){
 
-  currentStation =
-  station;
+currentStation =
+station;
 
 
-  playerName.textContent =
-  station.name;
+playerName.textContent =
+station.name;
 
-  playerCategory.textContent =
-  station.category;
+playerCategory.textContent =
+station.category;
 
-  playerIcon.textContent =
-  station.icon;
-
-
-  nowName.textContent =
-  station.name;
-
-  nowCategory.textContent =
-  station.category;
-
-  nowIcon.textContent =
-  station.icon;
-
-  nowStatus.textContent =
-  "🟡 CONNECTING";
+playerIcon.textContent =
+station.icon;
 
 
-  status.textContent =
-  "🔄 Connecting to " +
-  station.name +
-  "...";
+nowName.textContent =
+station.name;
+
+nowCategory.textContent =
+station.category;
+
+nowIcon.textContent =
+station.icon;
+
+nowStatus.textContent =
+"🟡 CONNECTING";
 
 
-  audio.pause();
-
-  audio.removeAttribute(
-    "src"
-  );
-
-  audio.load();
+status.textContent =
+"🔄 Connecting to " +
+station.name +
+"...";
 
 
-  audio.src =
-  station.stream;
+audio.pause();
 
-  audio.volume =
-  Number(volume.value);
+audio.removeAttribute(
+"src"
+);
 
-
-  audio.play()
-
-  .then(
-    function(){
-
-      mainPlay.textContent =
-      "⏸";
-
-      nowStatus.textContent =
-      "🔴 LIVE";
-
-      status.textContent =
-      "🔴 LIVE — " +
-      station.name;
-
-    }
-  )
-
-  .catch(
-    function(error){
-
-      console.log(
-        "Radio error:",
-        error
-      );
+audio.load();
 
 
-      mainPlay.textContent =
-      "▶";
+audio.src =
+station.stream;
 
-      nowStatus.textContent =
-      "⚪ OFFLINE";
+audio.volume =
+Number(
+volume.value
+);
 
-      status.textContent =
-      "⚠️ এই stream browser-এ চালানো যাচ্ছে না।";
 
-    }
-  );
+audio.play()
+
+.then(
+function(){
+
+mainPlay.textContent =
+"⏸";
+
+nowStatus.textContent =
+"🔴 LIVE";
+
+status.textContent =
+"🔴 LIVE — " +
+station.name;
+
+})
+.catch(
+function(error){
+
+console.log(
+error
+);
+
+mainPlay.textContent =
+"▶";
+
+nowStatus.textContent =
+"⚪ OFFLINE";
+
+status.textContent =
+"⚠️ Stream browser-এ চালানো যাচ্ছে না।";
+
+});
 
 }
 
 
 /* =====================================================
-   PLAY / PAUSE
+PLAY / PAUSE
 ===================================================== */
 
 mainPlay.addEventListener(
-  "click",
-  function(){
+"click",
+function(){
 
-    if(!currentStation){
+if(
+!currentStation
+){
 
-      status.textContent =
-      "🙏 প্রথমে একটি Radio নির্বাচন করুন।";
+status.textContent =
+"🙏 প্রথমে একটি Radio নির্বাচন করুন।";
 
-      return;
+return;
 
-    }
+}
 
 
-    if(audio.paused){
+if(
+audio.paused
+){
 
-      audio.play()
+audio.play()
+.then(
+function(){
 
-      .then(
-        function(){
+mainPlay.textContent =
+"⏸";
 
-          mainPlay.textContent =
-          "⏸";
+nowStatus.textContent =
+"🔴 LIVE";
 
-          nowStatus.textContent =
-          "🔴 LIVE";
+})
+.catch(
+function(){
 
-        }
-      )
+nowStatus.textContent =
+"⚪ OFFLINE";
 
-      .catch(
-        function(){
+});
 
-          mainPlay.textContent =
-          "▶";
+}
 
-          nowStatus.textContent =
-          "⚪ OFFLINE";
+else{
 
-        }
-      );
+audio.pause();
 
-    }
+mainPlay.textContent =
+"▶";
 
-    else{
+nowStatus.textContent =
+"⏸ PAUSED";
 
-      audio.pause();
+}
 
-      mainPlay.textContent =
-      "▶";
-
-      nowStatus.textContent =
-      "⏸ PAUSED";
-
-    }
-
-  }
-);
+});
 
 
 /* =====================================================
-   VOLUME
+VOLUME
 ===================================================== */
 
 volume.addEventListener(
-  "input",
-  function(){
+"input",
+function(){
 
-    audio.volume =
-    Number(volume.value);
-
-  }
+audio.volume =
+Number(
+volume.value
 );
+
+});
 
 
 /* =====================================================
-   AUDIO EVENTS
+AUDIO EVENTS
 ===================================================== */
 
 audio.addEventListener(
-  "playing",
-  function(){
+"playing",
+function(){
 
-    mainPlay.textContent =
-    "⏸";
+mainPlay.textContent =
+"⏸";
 
-    nowStatus.textContent =
-    "🔴 LIVE";
+nowStatus.textContent =
+"🔴 LIVE";
 
-  }
-);
-
-
-audio.addEventListener(
-  "pause",
-  function(){
-
-    mainPlay.textContent =
-    "▶";
-
-  }
-);
+});
 
 
 audio.addEventListener(
-  "error",
-  function(){
+"pause",
+function(){
 
-    mainPlay.textContent =
-    "▶";
+mainPlay.textContent =
+"▶";
 
-    nowStatus.textContent =
-    "⚪ OFFLINE";
+});
 
-    status.textContent =
-    "⚠️ Radio stream unavailable.";
 
-  }
-);
+audio.addEventListener(
+"error",
+function(){
+
+mainPlay.textContent =
+"▶";
+
+nowStatus.textContent =
+"⚪ OFFLINE";
+
+status.textContent =
+"⚠️ Radio stream unavailable.";
+
+});
 
 
 /* =====================================================
-   MOBILE MENU
+MOBILE MENU
 ===================================================== */
 
 document
-.getElementById("menuButton")
+.getElementById(
+"menuButton"
+)
 .addEventListener(
-  "click",
-  function(){
+"click",
+function(){
 
-    document
-    .getElementById("navigation")
-    .classList.toggle(
-      "show"
-    );
-
-  }
+document
+.getElementById(
+"navigation"
+)
+.classList.toggle(
+"show"
 );
+
+});
 
 
 /* =====================================================
-   LISTEN LIVE
+LISTEN LIVE
 ===================================================== */
 
 document
-.getElementById("listenLive")
+.getElementById(
+"listenLive"
+)
 .addEventListener(
-  "click",
-  function(){
+"click",
+function(){
 
-    document
-    .getElementById("stations")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+document
+.getElementById(
+"stations"
+)
+.scrollIntoView({
+behavior:"smooth"
+});
 
-  }
-);
+});
 
 
 /* =====================================================
-   START
+START
 ===================================================== */
 
-render(stations);
+render(
+stations
+);
 
-audio.volume=0.8;
+audio.volume =
+0.8;
 
 </script>
 
