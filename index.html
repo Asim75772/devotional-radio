@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Devotional Radio</title>
+
+  <meta name="description"
+        content="Listen to Bengali, Hindi and spiritual devotional radio stations online.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">🙏 Devotional Radio</div>
+
+  <button id="menuBtn" class="menu-btn">☰</button>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#bengali">বাংলা</a>
+    <a href="#hindi">हिन्दी</a>
+    <a href="#deity">Deity</a>
+    <a href="#mantra">Mantra</a>
+  </nav>
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+
+  <div class="hero-content">
+
+    <div class="om">ॐ</div>
+
+    <h1>Devotional Radio</h1>
+
+    <p>
+      Bengali • Hindi • Bhajan • Kirtan • Mantra • Aarti
+    </p>
+
+    <button class="scroll-btn"
+            onclick="document.getElementById('stations').scrollIntoView()">
+      🎵 Listen Live
+    </button>
+
+  </div>
+
+</section>
+
+
+<section class="search-area">
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Search radio, bhajan, Shiva, Krishna..."
+  >
+
+</section>
+
+
+<section id="stations" class="container">
+
+  <h2>🎙️ Live Devotional Radio</h2>
+
+  <div id="radioGrid" class="radio-grid"></div>
+
+</section>
+
+
+<section id="bengali" class="container">
+
+  <h2>🪔 বাংলা ভক্তিমূলক Radio</h2>
+
+  <div id="bengaliGrid" class="radio-grid"></div>
+
+</section>
+
+
+<section id="hindi" class="container">
+
+  <h2>🕉️ हिन्दी Devotional Radio</h2>
+
+  <div id="hindiGrid" class="radio-grid"></div>
+
+</section>
+
+
+<section id="deity" class="container">
+
+  <h2>🔱 Deity Radio</h2>
+
+  <div id="deityGrid" class="radio-grid"></div>
+
+</section>
+
+
+<section id="mantra" class="container">
+
+  <h2>📿 Mantra & Spiritual</h2>
+
+  <div id="mantraGrid" class="radio-grid"></div>
+
+</section>
+
+</main>
+
+
+<!-- PLAYER -->
+
+<div id="player" class="player">
+
+  <div class="player-info">
+
+    <div id="playerIcon">🙏</div>
+
+    <div>
+      <strong id="playerName">Select a Radio</strong>
+      <small id="playerCategory">Live Devotional Radio</small>
+    </div>
+
+  </div>
+
+
+  <div class="player-controls">
+
+    <button id="playBtn">▶</button>
+
+    <input
+      type="range"
+      id="volume"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.8"
+    >
+
+  </div>
+
+</div>
+
+
+<audio id="audio"></audio>
+
+
+<footer>
+
+  <p>🙏 Devotional Radio</p>
+
+  <p>
+    Bengali • Hindi • Spiritual • Internet Radio
+  </p>
+
+  <p>© 2026 Devotional Radio</p>
+
+</footer>
+
+
+<script src="stations.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
